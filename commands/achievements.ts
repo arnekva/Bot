@@ -1,9 +1,8 @@
 import { Client, Message } from 'discord.js'
 import { AbstractCommands } from '../Abstracts/AbstractCommand'
-import { AchievementHelper } from '../helpers/achievementHelper'
+import { ICommandElement } from '../General/commands'
 import { DatabaseHelper } from '../helpers/databaseHelper'
 import { MessageHelper } from '../helpers/messageHelper'
-import { ICommandElement } from '../General/commands'
 
 export type achievementIDs = 'firstSpin' | '100spin' | '1000spin' | '5000spin' | '10000spin' | 'bonkOnce' | 'bonk50' | 'bonk100'
 
@@ -80,7 +79,7 @@ export class Achievements extends AbstractCommands {
 
         Object.keys(users).forEach((username) => {
             const currentTotalspin = DatabaseHelper.getValue('counterSpin', username, message)
-            AchievementHelper.awardSpinningAch(username, currentTotalspin, message, true)
+            // AchievementHelper.awardSpinningAch(username, currentTotalspin, message, true)
         })
     }
     public getAllCommands(): ICommandElement[] {
